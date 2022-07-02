@@ -7,12 +7,12 @@ pool.on('error', (err) => {
 });
 
 module.exports = {
-    getDataSmartphone(req, res) {
+    getDataHandphone(req, res) {
         pool.getConnection(function (err, connection) {
             if (err) throw err;
             connection.query(
                 `
-                SELECT * FROM tabel_smartphone;
+                SELECT * FROM tabel_handphone;
                 `,
                 function (error, results) {
                     if (error) throw error;
@@ -25,14 +25,14 @@ module.exports = {
             connection.release();
         })
     },
-    getDataSmartphoneByID(req, res) {
+    getDataHandphoneByID(req, res) {
         let id_HP = req.params.id_HP;
         pool.getConnection(function (err, connection) {
             if (err) throw err;
             connection.query(
 
                 `
-                SELECT * FROM tabel_smartphone WHERE id_HP = ?;
+                SELECT * FROM tabel_handphone WHERE id_HP = ?;
                 `, [id_HP],
                 function (error, results) {
                     if (error) throw error;
@@ -45,7 +45,7 @@ module.exports = {
             connection.release();
         })
     },
-    addDataSmartphone(req, res) {
+    addDataHandphone(req, res) {
         let data = {
             nama_HP: req.body.nama_HP,
             jenis_HP: req.body.jenis_HP,
@@ -56,7 +56,7 @@ module.exports = {
             if (err) throw err;
             connection.query(
                 `
-                INSERT INTO tabel_smartphone SET ?;
+                INSERT INTO tabel_handphone SET ?;
                 `, [data],
                 function (error, results) {
                     if (error) throw error;
@@ -68,7 +68,7 @@ module.exports = {
             connection.release();
         })
     },
-    editDataSmartphone(req, res) {
+    editDataHandphone(req, res) {
         let dataEdit = {
             nama_HP: req.body.nama_HP,
             jenis_HP: req.body.jenis_HP,
@@ -80,7 +80,7 @@ module.exports = {
             if (err) throw err;
             connection.query(
                 `
-                UPDATE tabel_smartphone SET ? WHERE id_HP = ?;
+                UPDATE tabel_handphone SET ? WHERE id_HP = ?;
                 `, [dataEdit, id_HP],
                 function (error, results) {
                     if (error) throw error;
@@ -92,13 +92,13 @@ module.exports = {
             connection.release();
         })
     },
-    deleteDataSmartphone(req, res) {
+    deleteDataHandphone(req, res) {
         let id_HP = req.body.id_HP
         pool.getConnection(function (err, connection) {
             if (err) throw err;
             connection.query(
                 `
-                DELETE FROM tabel_smartphone WHERE id_HP = ?;
+                DELETE FROM tabel_handphone WHERE id_HP = ?;
                 `, [id_HP],
                 function (error, results) {
                     if (error) throw error;

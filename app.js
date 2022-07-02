@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
-const appRoute = require('./src/routes/route-smartphone');
+const appRoute = require('./src/routes/route-handphone');
 app.use('/', appRoute);
 
 app.set('port', (process.env.PORT || 8080));
