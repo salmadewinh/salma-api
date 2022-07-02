@@ -1,7 +1,7 @@
 module.exports = {
     multipleStatements: true,
     host: 'db4free.net',
-    user: 'albinuryachya',
-    password: 'albi123',
-    database: 'db_handphone'
+    user: 'hwangyeji',
+    password: 'Einshearth1111',
+    database: 'pkl_ay'
 };
